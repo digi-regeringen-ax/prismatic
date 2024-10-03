@@ -44,7 +44,7 @@ export const clearSecretFields = (person) => {
             'home_municipality',
             'temporary_municipality',
             'temporary_resident_location',
-            'adress_in_permanent_place',
+            'address_in_permanent_place',
             'municipality_turn_year',
             'email',
             'TILAPAINEN_KOTIMAINEN_ASUINPAIKKATUNNUS',
