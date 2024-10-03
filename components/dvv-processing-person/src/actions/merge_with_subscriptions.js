@@ -3,6 +3,7 @@ import {createJsonInput, createStringInput} from "../utilities/inputs";
 import {v4 as uuidv4} from 'uuid';
 //import deepmerge from "deepmerge";
 import {merge, cloneDeep} from 'lodash';
+import {clearSecretFields} from "../utilities/secret-identity";
 
 export const merge_with_subscriptions = action({
     display: {
@@ -51,7 +52,7 @@ export const merge_with_subscriptions = action({
                 const mergedResult = merge(cloneDeep(oldEntry.data), newValuesMap.get(ssn))
                 updatedResults.push({
                     ...oldEntry,  // Include all properties from the old entry
-                    data: mergedResult,
+                    data: clearSecretFields(mergedResult),
                     state: 'UPDATED'
                 });
                 // Remove the matched newValue from the map, so we can later add only unmatched newValues
@@ -65,7 +66,7 @@ export const merge_with_subscriptions = action({
                 id: uuidv4(),                // New id because it's new
                 project: projectCode,    // Set project property as passed into the function
                 ssn: ssn,
-                data: newValue,          // Set the data to new value's value branch
+                data: clearSecretFields(newValue),          // Set the data to new value's value branch
                 previous_ssns: null,     // No previous SSNs
                 state: 'NEW'             // Mark the state as 'NEW'
             });

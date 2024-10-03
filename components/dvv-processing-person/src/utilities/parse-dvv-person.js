@@ -279,7 +279,7 @@ export class DVV_person {
     }
 
     /*
-     * tillfällig adress i hemlandet
+     * Tillfällig adress i hemlandet
      */
     TILAPAINEN_KOTIMAINEN_OSOITE(t) {
         this.setAddress('temporary', t);
@@ -430,7 +430,7 @@ export class DVV_person {
      * stadigvarande boende på vistelseorten
      */
     VAKINAINEN_OLINPAIKASSA_ASUMINEN(t) {
-        this.setData('adress_in_permanent_place', t);
+        this.setData('address_in_permanent_place', t);
     }
 
     /*
