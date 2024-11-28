@@ -1,6 +1,5 @@
 // Generalized input creation utility with custom cleaning logic
 import {input} from "@prismatic-io/spectral";
-import {isObject} from "./types";
 
 const createInput = ({
                          label,

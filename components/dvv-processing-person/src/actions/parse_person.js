@@ -1,14 +1,13 @@
 import {action} from "@prismatic-io/spectral";
-import {DVV_person} from "../utilities/parse-dvv-person";
+import {DVV_person} from "../dvv-person";
 import {dataInput} from "../inputs/Incoming_dvv_person";
-import {FinnishSSN} from 'finnish-ssn';
 
 export const convertPersonData = action({
     display: {
         label: "Parse DVV-person data",
         description: "Convert DVV's data structure into a more readable one."
     },
-    inputs: {dvv_persons: dataInput},
+    inputs: { dvv_persons: dataInput },
     perform: async (context, {dvv_persons}) => {
         // Use a Map for more efficient lookup and insertion
         const processedValue = dvv_persons.reduce((acc, item) => {
@@ -16,13 +15,11 @@ export const convertPersonData = action({
                 throw new Error("Each item must have a 'henkilotunnus' (string) and 'tietoryhmat' (array)");
             }
 
-            if (FinnishSSN.validate(item.henkilotunnus)) {
-                // Use the Map to store attributes based on 'henkilotunnus'
-                if (!acc.has(item.henkilotunnus)) {
-                    acc.set(item.henkilotunnus, []);
-                }
-                acc.get(item.henkilotunnus).push(...item.tietoryhmat);
+            // Use the Map to store attributes based on 'henkilotunnus'
+            if (!acc.has(item.henkilotunnus)) {
+                acc.set(item.henkilotunnus, []);
             }
+            acc.get(item.henkilotunnus).push(...item.tietoryhmat);
             return acc;
         }, new Map());
 

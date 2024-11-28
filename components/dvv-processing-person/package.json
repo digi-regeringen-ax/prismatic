@@ -2,7 +2,7 @@
   "name": "dvv-processing-person",
   "version": "0.0.1",
   "main": "index.js",
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "webpack",
     "publish": "npm run build && prism components:publish",
@@ -11,11 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@prismatic-io/spectral": "9.1.1",
-    "deepmerge": "^4.3.1",
-    "finnish-ssn": "^2.1.2",
-    "lodash": "^4.17.21",
-    "uuid": "^10.0.0"
+    "@prismatic-io/spectral": "9.1.1"
   },
   "devDependencies": {
     "@prismatic-io/eslint-config-spectral": "2.0.1",

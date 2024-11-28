@@ -1,0 +1,17 @@
+/.DS_Store
+/.vscode/
+/components/.DS_Store
+/components/directus/.DS_Store
+/components/directus/dist/
+/components/directus/node_modules/
+/components/directus/package-lock.json
+/components/directus/src/.DS_Store
+/components/dvv-processing-person/dist/
+/components/dvv-processing-person/node_modules/
+/components/dvv-processing-person/package-lock.json
+/components/dvv-processing-person/src/.DS_Store
+/components/lr-helpers/dist/
+/components/lr-helpers/node_modules/
+/components/lr-helpers/package-lock.json
+/components/lr-helpers/src/.DS_Store
+/.idea/

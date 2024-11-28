@@ -1,0 +1,11 @@
+Run tests (and configure connection):
+
+prism components:dev:run \
+  --integrationId SW50ZWdyYXRpb246ZGVlZTRhZjQtOTYzYi00YWIwLTg1OTEtOTU4YTEzNjM4NTY1 \
+  --connectionKey "Directus HBR" -- npm run test
+
+Show connection details:
+
+prism components:dev:run --integrationId SW50ZWdyYXRpb246ZGVlZTRhZjQtOTYzYi00YWIwLTg1OTEtOTU4YTEzNjM4NTY1 \
+--connectionKey "Directus HBR" \
+-- printenv PRISMATIC_CONNECTION_VALUE | jq

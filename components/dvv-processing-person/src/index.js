@@ -1,7 +1,6 @@
 import {component} from "@prismatic-io/spectral";
 
 import {convertPersonData} from "./actions/parse_person";
-import {merge_with_subscriptions} from "./actions/merge_with_subscriptions";
 
 // Define and export the component
 export default component({
@@ -13,7 +12,6 @@ export default component({
         iconPath: "dvv2.png"
     },
     actions: {
-        convertPersonData,
-       merge_with_subscriptions
+        convertPersonData
     }
 });
