@@ -1,4 +1,4 @@
-import { action } from "@prismatic-io/spectral";
+import { action, util } from "@prismatic-io/spectral";
 import { getDirectusClient } from "../../connections/auth";
 import {
   aliasInput,
@@ -12,7 +12,7 @@ import {
   searchInput,
   sortInput
 } from "../../inputs";
-import { readFiles } from "@directus/sdk";
+import { readFiles, readItems } from "@directus/sdk";
 import { buildQueryObject, getDirectusResponse } from "../helpers";
 
 // Action: List All Files

@@ -20,20 +20,23 @@ const createInput = ({
 
 // Specialized JSON input creation with built-in JSON validation
 export const createJsonInput = ({
-                             label,
-                             required = false,
-                             defaultValue = {},
-                             comments = "",
-                             mustBeArray = false,
-                             clean = null
-                         }) => {
+                                    label,
+                                    required = false,
+                                    defaultValue = {},
+                                    comments = "",
+                                    mustBeArray = false,
+                                    clean = null
+                                }) => {
     const cleanFn = clean || ((value) => {
         if (Array.isArray(value) || isObject(value)) {
             return value;
         }
         if (!value) return mustBeArray ? [] : {};
         if (!isJsonString(value)) {
-            throw new Error(`Invalid JSON for ${label}: ${value}`);
+
+            const valueStr = JSON.stringify(value);
+            console.log('valueStr', valueStr, label);
+            throw new Error(`Invalid JSON for ${label}: ${valueStr}`);
         }
 
         const result = JSON.parse(value);

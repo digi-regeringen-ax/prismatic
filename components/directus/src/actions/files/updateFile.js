@@ -8,7 +8,7 @@ import {
     itemIdInput
 } from "../../inputs";
 import {readItem} from "@directus/sdk";
-import {getDirectusResponse} from "../helpers";
+import {buildQueryObject, getDirectusResponse} from "../helpers";
 
 // Action: List All Items
 const updateFileAction = action({

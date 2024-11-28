@@ -18,8 +18,8 @@ export const apiKeyConnection = connection({
       example: "https://my-company.api.directus.com/",
     },
     apiKey: {
-      label: "Directus API Key",
-      placeholder: "Acme API Key",
+      label: "Directus API static token",
+      placeholder: "Directus API static token",
       type: "string",
       required: false,
     },

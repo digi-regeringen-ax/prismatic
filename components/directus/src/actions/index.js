@@ -17,7 +17,6 @@ import readFileAction from "./files/readFile"
 import updateFileAction from "./files/updateFile"
 import updateFileMetaDataAction from "./files/updateFileMetaData"
 import uploadFileAction from "./files/uploadFile"
-import genericCallToSDKAction from "./genericCallToSDK"
 
 export default {
   createItemAction,
@@ -39,7 +38,5 @@ export default {
   updateFileAction,
   updateFileMetaDataAction,
   uploadFileAction,
-
-  genericCallToSDKAction
 
 };

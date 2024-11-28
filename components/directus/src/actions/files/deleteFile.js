@@ -4,8 +4,8 @@ import {
   connectionInput,
   itemIdInput
 } from "../../inputs";
-import { deleteFile} from "@directus/sdk";
-import { getDirectusResponse } from "../helpers";
+import { deleteFile, readItem } from "@directus/sdk";
+import { buildQueryObject, getDirectusResponse } from "../helpers";
 
 // Action: Delete a fle
 const deleteFileAction = action({

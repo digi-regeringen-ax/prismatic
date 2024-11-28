@@ -1,7 +1,6 @@
 // Helper function to add a property to query_object if it exists in inputs
 import {util} from "@prismatic-io/spectral";
 import {isJsonString} from "../utilities/types"
-import {withSearch} from "@directus/sdk";
 
 export const addToQueryObject = (queryObject, key, value, isJson = false) => {
     if (isJson && typeof value === "string") {
@@ -23,11 +22,10 @@ export const buildQueryObject = (inputs) => Object.entries(inputs).reduce(
 
 // Optimized duplicate Directus client retrieval with function
 export const getDirectusResponse = async (directusClient, method, collection, ...args) => {
-
     if (collection) {
-        return directusClient.request(withSearch(method(collection, ...args)));
+        return directusClient.request(method(collection, ...args));
     }
-    return directusClient.request(withSearch(method(...args)));
+    return directusClient.request(method(...args));
 
 };
 

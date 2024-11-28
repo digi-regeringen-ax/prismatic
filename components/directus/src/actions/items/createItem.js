@@ -22,7 +22,6 @@ const createItemAction = action({
   perform: async (context, { directusConnection, collection, data }) => {
     const directusClient = getDirectusClient(directusConnection);
     const response = await getDirectusResponse(directusClient, createItem, collection, data);
-
     return { data: response };
   }
 });

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/prismatic-io.iml" filepath="$PROJECT_DIR$/.idea/prismatic-io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/prismatic.iml" filepath="$PROJECT_DIR$/.idea/prismatic.iml" />
     </modules>
   </component>
 </project>
