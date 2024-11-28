@@ -10,8 +10,8 @@
 /components/dvv-processing-person/node_modules/
 /components/dvv-processing-person/package-lock.json
 /components/dvv-processing-person/src/.DS_Store
-/components/helpers/dist/
-/components/helpers/node_modules/
-/components/helpers/package-lock.json
-/components/helpers/src/.DS_Store
+/components/utilities/dist/
+/components/utilities/node_modules/
+/components/utilities/package-lock.json
+/components/utilities/src/.DS_Store
 /.idea/
