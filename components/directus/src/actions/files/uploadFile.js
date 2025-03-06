@@ -25,7 +25,7 @@ const uploadFileAction = action({
 
         const formData = new FormData();
         formData.append("title", inputs.title);
-        formData.append("folder", inputs.folder);
+        if (inputs.folder) formData.append("folder", inputs.folder);
         const file = new Blob([inputs.data]);
         formData.append("file", file);
         console.log(inputs.data);

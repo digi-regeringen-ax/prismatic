@@ -1,7 +1,7 @@
 import {createHarness} from "@prismatic-io/spectral/dist/testing";
 import myComponent from "./index";
 import connections from "./connections";
-
+console.log(JSON.stringify(connections, null, 4));
 const harness = createHarness(myComponent);
 const myConnection = harness.connectionValue(connections);
 
