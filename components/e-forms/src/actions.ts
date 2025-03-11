@@ -79,6 +79,7 @@ const get_attachments_for_response = async (responseItem: any, client: AxiosInst
 
             // Wait for all file fetches to complete
             const fetchedAttachments = await Promise.all(filePromises);
+            responseItem._attachmentsDetails = [];
 
             // Process each fetched attachment
             fetchedAttachments.forEach((attachment) => {
@@ -95,11 +96,18 @@ const get_attachments_for_response = async (responseItem: any, client: AxiosInst
 
                     if (index !== -1) {
                         // Replace the name with its content
-                        responseItem[attachment.question_id][index] = {
-                            name: attachment.name,
-                            content: attachment.content,
-                            mime_type: attachment.mime_type
-                        };
+                        responseItem._attachmentsDetails.push({
+                            'field': attachment.question_id,
+                            'index': index,
+                            'mime_type': attachment.mime_type,
+                            'name': attachment.name,
+                            'content': attachment.content
+                        });
+                        // responseItem[attachment.question_id][index] = {
+                        //     name: attachment.name,
+                        //     content: attachment.content,
+                        //     mime_type: attachment.mime_type
+                        // };
                     }
                 }
 
@@ -113,7 +121,7 @@ const get_attachments_for_response = async (responseItem: any, client: AxiosInst
     return responseItem;
 }
 
-const response_export = action({
+export const response_export = action({
     display: {
         label: "Export form responses to a specified format",
         description: "Returns a single file containing all selected responses. Default selection is all.",
@@ -148,7 +156,7 @@ const response_export = action({
     },
 });
 
-const list_new = action({
+export const list_new = action({
     display: {
         label: "List new responses",
         description: "Returns a list of unfetched responses from all forms.",
@@ -175,7 +183,7 @@ const list_new = action({
     },
 });
 
-const list = action({
+export const list = action({
     display: {
         label: "List responses for a specific form",
         description: "Return a list of responses for a specific form.",
@@ -207,7 +215,7 @@ const list = action({
     },
 });
 
-const get_response_attachment = action({
+export const get_response_attachment = action({
     display: {
         label: "Get a response attachment",
         description: "Returns an attachment file of any kind.",
@@ -228,7 +236,7 @@ const get_response_attachment = action({
     },
 });
 
-const get_response = action({
+export const get_response = action({
     display: {
         label: "Receive a single response",
         description: "Returns a single response.",

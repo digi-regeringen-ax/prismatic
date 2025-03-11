@@ -9,3 +9,15 @@ Show connection details:
 prism components:dev:run --integrationId SW50ZWdyYXRpb246ZGVlZTRhZjQtOTYzYi00YWIwLTg1OTEtOTU4YTEzNjM4NTY1 \
 --connectionKey "Directus HBR" \
 -- printenv PRISMATIC_CONNECTION_VALUE | jq
+
+
+
+
+prism components:dev:run --integrationId SW50ZWdyYXRpb246ZDJlMGY3ZGItODFmYi00MjdlLWFmYTQtMGY2YjA5MDRkOGMz \
+--connectionKey "Hello World-connection" -- npm run test
+
+prism components:dev:run --integrationId SW50ZWdyYXRpb246ZDJlMGY3ZGItODFmYi00MjdlLWFmYTQtMGY2YjA5MDRkOGMz \
+--connectionKey "E-tjänster-API Connection" \
+-- printenv PRISMATIC_CONNECTION_VALUE | jq
+
+

@@ -33,10 +33,8 @@ export const createJsonInput = ({
         }
         if (!value) return mustBeArray ? [] : {};
         if (!isJsonString(value)) {
-
-            const valueStr = JSON.stringify(value);
-            console.log('valueStr', valueStr, label);
-            throw new Error(`Invalid JSON for ${label}: ${valueStr}`);
+            value = JSON.stringify(value);
+            //throw new Error(`Invalid JSON for ${label}: ${valueStr}`);
         }
 
         const result = JSON.parse(value);

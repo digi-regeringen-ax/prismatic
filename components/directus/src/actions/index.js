@@ -18,6 +18,9 @@ import updateFileAction from "./files/updateFile"
 import updateFileMetaDataAction from "./files/updateFileMetaData"
 import uploadFileAction from "./files/uploadFile"
 
+import createFolderAction from "./folders/createFolder"
+import listFoldersAction from "./folders/listFolders";
+
 export default {
   createItemAction,
   createItemsAction,
@@ -39,4 +42,6 @@ export default {
   updateFileMetaDataAction,
   uploadFileAction,
 
+  createFolderAction,
+  listFoldersAction,
 };
