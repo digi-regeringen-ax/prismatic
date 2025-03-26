@@ -14,10 +14,14 @@ prism components:dev:run --integrationId SW50ZWdyYXRpb246ZGVlZTRhZjQtOTYzYi00YWI
 
 
 prism components:dev:run --integrationId SW50ZWdyYXRpb246ZDJlMGY3ZGItODFmYi00MjdlLWFmYTQtMGY2YjA5MDRkOGMz \
---connectionKey "Hello World-connection" -- npm run test
+--connectionKey "E-tjänster-API Connection" -- npm run test
 
 prism components:dev:run --integrationId SW50ZWdyYXRpb246ZDJlMGY3ZGItODFmYi00MjdlLWFmYTQtMGY2YjA5MDRkOGMz \
---connectionKey "E-tjänster-API Connection" \
--- printenv PRISMATIC_CONNECTION_VALUE | jq
+--connectionKey "E-tjänster-API Connection" -- npm run test
 
 
+
+
+
+prism components:dev:run --integrationId SW50ZWdyYXRpb246ZDJlMGY3ZGItODFmYi00MjdlLWFmYTQtMGY2YjA5MDRkOGMz \
+--connectionKey "Hello World-connection" -- npm run test

@@ -13,19 +13,22 @@ const credentials = JSON.parse(process.env.PRISMATIC_CONNECTION_VALUE || "{}")
 import {ConnectionValue} from "@prismatic-io/spectral/dist/serverTypes";
 
 describe("Test response_export action", () => {
-    test("Ensure the response_export action returns an item", async () => {
+    test("Ensure the get_response action returns a file", async () => {
 
-        const CHECK_FORM_ID = 3268;
-        const {result} = await invoke(response_export, {
+        const RESPONSE_ID = 1944;
+        const {result} = await invoke(get_response, {
             eFormConnection: createConnection(eFormConnection, credentials.fields),
-            form_id: CHECK_FORM_ID,
-            type: "json",
-            selection: "all",
+            response_id: 1944,
+            type: "pdf",
             include_attachments: false
         });
 
+
+        console.log('My data', result.data.substring(0, 100));
+
         expect(result.data[0]).toHaveProperty("_id");
-        expect(result.data[0]).toHaveProperty("_formId", CHECK_FORM_ID);
+        expect(result.data[0]).toHaveProperty("_id", RESPONSE_ID);
 
     });
 });
+

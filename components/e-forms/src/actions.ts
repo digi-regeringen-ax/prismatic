@@ -228,10 +228,36 @@ export const get_response_attachment = action({
             type: "string",
             required: true,
         }),
+        mimeType: input({
+            label: "Mime-type",
+            type: "string",
+            required: true,
+        }),
     },
-    perform: async (context, {eFormConnection, response_id, index}) => {
+    perform: async (context, {eFormConnection, response_id, index, mimeType}) => {
         const client = await eFormClient(eFormConnection);
-        const response = await client.get(`/response_export/response/${response_id}/attachment/${index}`);
+
+        let myMimeType = typeof mimeType === 'string' ? mimeType : '';
+
+        let options = {};
+
+        if (![
+            'text/plain',
+            'text/html',
+            'text/css',
+            'text/javascript',
+            'application/json',
+            'application/xml',
+            'text/xml',
+            'text/csv'
+        ].includes(myMimeType)) {
+            options = {
+                responseType: 'arraybuffer'
+            };
+        }
+
+        const response = await client.get(`/response_export/response/${response_id}/attachment/${index}`,
+            options);
         return {data: response.data};
     },
 });
@@ -255,16 +281,27 @@ export const get_response = action({
     },
     perform: async (context, {eFormConnection, response_id, type, include_attachments}) => {
         const client = await eFormClient(eFormConnection);
-        const response = await client.get(`/response_export/response/${response_id}/${type}`);
-        if (include_attachments) {
-            if (Array.isArray(response.data)) {
-                response.data = response.data[0];
-            }
 
-            response.data = await get_attachments_for_response(response.data, client);
-
+        let options = {};
+        if (type === 'pdf') {
+            options = {
+                responseType: 'arraybuffer'
+            };
         }
+
+        const response = await client.get(`/response_export/response/${response_id}/${type}`, options);
+        if (Array.isArray(response.data)) {
+            response.data = response.data[0];
+        }
+        if (!response.data._attachments) {
+            response.data._attachments = [];
+        }
+        if (include_attachments) {
+            response.data = await get_attachments_for_response(response.data, client);
+        }
+
         return {data: response.data};
+
     },
 });
 

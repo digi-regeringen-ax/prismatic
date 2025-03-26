@@ -53,7 +53,8 @@ const uploadFileAction = action({
             formData.append("tags", JSON.stringify(tags));
         }
         if (inputs.folder) formData.append("folder", inputs.folder);
-        const file = new Blob([inputs.data]);
+
+        const file = new Blob([inputs.data], { type: 'application/pdf' });
 
         if (inputs.filename_download) {
             formData.append("file", file, inputs.filename_download);
