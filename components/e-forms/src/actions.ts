@@ -293,9 +293,7 @@ export const get_response = action({
         if (Array.isArray(response.data)) {
             response.data = response.data[0];
         }
-        if (!response.data._attachments) {
-            response.data._attachments = [];
-        }
+
         if (include_attachments) {
             response.data = await get_attachments_for_response(response.data, client);
         }
