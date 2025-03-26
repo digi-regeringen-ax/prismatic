@@ -34,6 +34,12 @@ const uploadFileAction = action({
             label: "Filename",
             comments: "Filename to download",
             required: false,
+        }),
+
+        mime_type: createStringInput({
+            label: "Mime-type",
+            comments: "Mime-type of file to upload",
+            required: true,
         })
     },
     perform: async (context, inputs) => {
@@ -54,7 +60,7 @@ const uploadFileAction = action({
         }
         if (inputs.folder) formData.append("folder", inputs.folder);
 
-        const file = new Blob([inputs.data], { type: 'application/pdf' });
+        const file = new Blob([inputs.data], { type: inputs.mime_type });
 
         if (inputs.filename_download) {
             formData.append("file", file, inputs.filename_download);
