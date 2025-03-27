@@ -44,12 +44,13 @@ export const createJsonInput = ({
         return result;
     });
 
-    return createInput({
+    return input({
         label,
         required,
-        defaultValue,
+        default: defaultValue,
         comments,
         type: "code",
+        language: "json",
         clean: cleanFn
     });
 };
