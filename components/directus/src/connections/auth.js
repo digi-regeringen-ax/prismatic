@@ -17,5 +17,7 @@ export function getDirectusClient(directusConnection) {
         directus = directus.with(staticToken(apiKey));
     }
 
-    return directus.with(rest()).with(graphql());
+    return directus
+        .with(rest())
+        .with(graphql());
 }

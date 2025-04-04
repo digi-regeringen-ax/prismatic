@@ -290,6 +290,7 @@ export const get_response = action({
         }
 
         const response = await client.get(`/response_export/response/${response_id}/${type}`, options);
+        // As per 2025-04-03, this should not be used anymore, as it always returns an object. But cannot hurt.
         if (Array.isArray(response.data)) {
             response.data = response.data[0];
         }
